@@ -15,7 +15,8 @@ try{
 })
 
 router.get("/:id", async (req, res, next) => {
-  res.json(`getting car with id ${req.params.id}`);
+    const {id} = req.params
+  res.json(`getting car with id ${id}`);
 });
 
 router.post("/", async (req, res, next) => {
