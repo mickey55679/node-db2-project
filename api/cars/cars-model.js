@@ -5,12 +5,12 @@ const getAll = () => {
  
 }
 
-const getById = () => {
-  // DO YOUR MAGIC
+const getById = (id) => {
+  return db('cars').where({ id }).first()
 }
 
 const create = () => {
-  // DO YOUR MAGIC
+  
 }
 
 module.exports = {

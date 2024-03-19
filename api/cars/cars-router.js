@@ -16,7 +16,16 @@ try{
 
 router.get("/:id", async (req, res, next) => {
     const {id} = req.params
-  res.json(`getting car with id ${id}`);
+try{
+    const car = await Car.getById(id);
+    if(car) {
+        res.json(car);
+    } else {
+        res.status(404).json({message: `Car with ${id} not found` })
+    }
+} catch(err){
+    next(err)
+}
 });
 
 router.post("/", async (req, res, next) => {
